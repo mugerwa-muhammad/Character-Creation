@@ -17,10 +17,26 @@
         </div>
         <div id="alreadyAdded">
         </div>
-        <div id="assignment_name"> 
-            <input type="text" name="assignment_name" id="" placeholder="Enter assignment name">
+        <div id="assignment_name">
+
+
+            <p id="sample_dateTime">
+                Sample dateTime : 2022, 11, 17, 13, 24<br>
+                <i>2022-year 11-month 17-date 13-hours 24-minutes</i>
+            </p>
+
+            start DateTime:
+            <p><input type="datetime" name="startdateTime" id="startdateTime" required="required"></p>
+            End Datetime:
+            <p>
+                <input type="datetime" name="enddateTime" id="enddateTime" required="required">
+                <input type="text" name="character_ids" id="character_ids">
+            </p>
+            <input type="text" name="assignment_name" id="assignment_id" placeholder="Enter assignment name" required="required">
         </div>
-        <input type="submit" value="Upload Assignment">
+        <p>
+            <input type="submit" value="Upload Assignment" id="add_assignment">
+        </p>
     </form>
     <div id="notSelected">
         <?php
@@ -29,8 +45,8 @@
         $result = mysqli_query($connection, $sql);
         $num = mysqli_num_rows($result);
         while ($row = mysqli_fetch_assoc($result)) {
-            
-            echo "<button class='character_bttn' name=".$row['name']." id=".$row['character_id'].">";
+
+            echo "<button class='character_bttn' name=" . $row['name'] . " id=" . $row['character_id'] . ">";
             echo $row['name'];
             echo "</button>";
         }
